@@ -21,9 +21,24 @@ int mabnaC(int n, int k)
 	}
 	return number;
 }
+int mirrorcheck(int n)
+{
+	int mirror=0, dummy=n;
+	while(dummy!=0)
+	{
+		mirror=mirror*10 + (dummy%10);
+		dummy/=10;
+	}
+	if(mirror == n)
+		return 1;
+	return 0;
+}
 int main()
 {
 	int a, b, c, w;
 	scanf("%d%d%d", &a, &b,&c);
-	mabnaC(mabna10(a,b), c);
+	if(mirrorcheck(mabnaC(mabna10(a,b), c))==1)
+		printf("YES");
+	else
+		printf("NO");
 }
